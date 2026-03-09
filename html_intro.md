@@ -16,13 +16,13 @@
 <html lang="de">
   <head>
     <meta charset="utf-8">
-    <title>Meine erste Seite</title>
+    <title>Meine erste Edition</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Einführung in HTML">
   </head>
   <body>
-    <h1>Meine erste Seite</h1>
-    <p>Das ist eine HTML-Seite.</p>
+    <h1>Meine erste Edition</h1>
+    <p>… text text text …</p>
   </body>
 </html>
 ```
@@ -47,11 +47,11 @@
 - Betonung: `<em>` (inhaltliche Betonung), `<strong>` (stark betont)
 - Inline vs. Block: `<span>` (inline), `<div>` (block)
 ```html
-<h1>Dokumenttitel</h1>
-<h2>Unterthema</h2>
+<h1>Überschrift der Seite</h1>
+<h2>Überschrift des Abschnitts</h2>
 <p>Dies ist ein <em>wichtiger</em> Absatz mit <strong>starker Betonung</strong>.</p>
 <div><p>Ein Absatz innerhalb eines Blockbereichs</p><p>Ein weiterer Absatz innerhalb desselben Blockbereichs</p></div>
-<span>Ein inline-Textstück</span>
+<p><span>Ein inline-Textstück</span>, also ein Bereich, der nicht als Block dargestellt werden sollte.</p>
 ```
 
 ---
@@ -61,6 +61,7 @@
 - Absolute vs. relative URLs
 - Barrierefreiheit: Linktexte aussagekräftig formulieren
 - Navigation oft in `<nav>`-Bereichen organisiert
+- Ankerlinks mit `#` für Sprungmarken innerhalb der Seite
 ```html
 <nav>
   <ul>
@@ -76,23 +77,9 @@
 
 ## Bilder und Medien (ohne CSS)
 - Bilder: `<img src alt>` – `alt` ist Pflicht (Beschreibung)
-- Figuren mit Beschriftung: `<figure>` und `<figcaption>`
 - Einfache Einbettung von Video/Audio
 ```html
-<figure>
-  <img src="landschaft.jpg" alt="Berglandschaft im Sonnenuntergang">
-  <figcaption>Berglandschaft</figcaption>
-</figure>
-
-<video controls width="480">
-  <source src="clip.mp4" type="video/mp4">
-  Ihr Browser unterstützt das Video-Tag nicht.
-</video>
-
-<audio controls>
-  <source src="musik.ogg" type="audio/ogg">
-  Ihr Browser unterstützt das Audio-Tag nicht.
-</audio>
+<img src="foto.jpg" alt="Ein Faksimile des edierten Dokuments">
 ```
 
 ---
@@ -136,14 +123,14 @@
   - `<footer>` Fußbereich
 ```html
 <header>
-  <h1>Mein Blog</h1>
+  <h1>Meine Edition</h1>
 </header>
 <main>
   <article>
-    <h2>Erster Beitrag</h2>
+    <h2>Textzeuge 1</h2>
     <p>Inhalt...</p>
   </article>
-  <aside>Newsletter-Anmeldung</aside>
+  <aside>Informationen zur Entstehung des Textes</aside>
 </main>
 <footer>&copy; 2026</footer>
 ```
@@ -158,3 +145,5 @@
   - MDN Web Docs (developer.mozilla.org)
   - HTML Living Standard (whatwg.org)
   - WebAIM (webaim.org) für Accessibility
+  - Google, Stack Overflow – wahrscheinlich hatte bereits jemand Ihr Problem
+  - LLMs können auch sehr gut helfen. Aber prüfen Sie die Outputs und lassen Sie sich alles erklären, damit Sie verstehen, was passiert!

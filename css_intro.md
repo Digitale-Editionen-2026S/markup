@@ -110,7 +110,7 @@ h1 { font-size: 2.5rem; }          /* skaliert mit Root */
 .title { font-size: clamp(1.25rem, 2vw + 1rem, 2.5rem); }
 ```
 
-## CSS-Frameworks (z. B. Bootstrap)
+## CSS-Frameworks
 - Zweck: Vorgefertigte Layout- und UI-Bausteine (Grid, Utilities, Komponenten) für schnellen Start
 - Vorteile:
   - Schnelles Prototyping, konsistente Basiskomponenten, responsives Grid out-of-the-box
