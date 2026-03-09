@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Meine erste Edition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Einführung in HTML">
+    <link rel="stylesheet" href="test_styles.css">
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Meine erste Edition</h1>
+      <nav class="main-nav">
+        <a href="#lesetext">Lesetext</a>
+        <a href="#apparat">Textapparat</a>
+        <a href="#kommentar">Kommentar</a>
+      </nav>
+    </header>
+
+    <main class="edition-layout">
+      <section class="edition-metadata" aria-label="Metadaten der Edition">
+        <h2>Metadaten</h2>
+        <dl>
+          <div class="meta-row">
+            <dt>Autor</dt>
+            <dd>Eduard Hanslick (Beispiel)</dd>
+          </div>
+          <div class="meta-row">
+            <dt>Titel</dt>
+            <dd>Vom Musikalisch-Schönen</dd>
+          </div>
+          <div class="meta-row">
+            <dt>Edition</dt>
+            <dd>Digitale Studienausgabe</dd>
+          </div>
+          <div class="meta-row">
+            <dt>Zeugen</dt>
+            <dd>A, blah, B blah</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="edition-text" id="lesetext" aria-label="Lesetext">
+        <h2>Lesetext</h2>
+        <p>
+          Das <span class="lemmatized" data-lemma="Wesen">Wesen</span> der Musik ist
+          <span class="lemmatized" data-lemma="Tonbewegung">Tonbewegung</span>.
+          In dieser <span class="lemmatized" data-lemma="Bewegung">Bewegung</span>
+          liegt ihr ästhetischer Gehalt.
+        </p>
+
+        <section class="variant-apparatus" id="apparat" aria-label="Variantenapparat">
+          <h3>Varianten</h3>
+          <ul class="variant-list">
+            <li class="variant-item">
+              <span class="variant-location">Z. 1</span>
+              <span class="variant-lemma">Wesen</span>
+              <span class="variant-reading">Wesenheit</span>
+              <span class="variant-witnesses">Var.: B</span>
+            </li>
+            <li class="variant-item">
+              <span class="variant-location">Z. 2</span>
+              <span class="variant-lemma">Tonbewegung</span>
+              <span class="variant-reading">Töne</span>
+              <span class="variant-witnesses">Var.: A</span>
+            </li>
+          </ul>
+        </section>
+      </section>
+
+      <aside class="edition-commentary" id="kommentar" aria-label="Kommentar">
+        <h2>Kommentar</h2>
+        <div class="comment-list">
+          <article class="comment-card">
+            <h3>Zur Terminologie</h3>
+            <p>
+              Der Ausdruck 
+              <span class="quote-inline">"Wesen der Musik"</span>
+              ist zentral f&uuml;r Hanslicks Argumentation und verweist auf eine
+              autonome &Auml;sthetik des Klanges.
+            </p>
+          </article>
+          <article class="comment-card">
+            <h3>Zur &Uuml;berlieferung</h3>
+            <p>
+              Die Fassungen A und B unterscheiden sich vor allem in der
+              begrifflichen Sch&auml;rfe; die Varianten sind im Apparat
+              nachgewiesen.
+            </p>
+          </article>
+        </div>
+      </aside>
+    </main>
+  </body>
+</html>
