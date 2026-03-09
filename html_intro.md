@@ -36,8 +36,10 @@
 - Globale Attribute: `id`, `class`, `title`, `lang`, `dir`
 ```html
 <p id="einleitung" title="Ein kurzer Absatz">Hallo!</p>
+<p class="untergeordnet">Dieser Absatz ist untergeordnet.</p>
 <img src="bild.jpg" alt="Beschreibung des Bildes" width="300" height="200">
 ```
+- die Werte von id und class können für CSS-Selektoren verwendet werden, z. B. `#einleitung` oder `.untergeordnet`. Id-Werte müssen eindeutig sein, während class-Werte in mehreren Elementen vergeben werden können (und meist auch sollten).
 
 ---
 
@@ -139,8 +141,8 @@
 ## Gute Praxis, Validierung und Ressourcen
 - Saubere Struktur, semantische Tags, sinnvolle `alt`-Texte
 - Einhaltung der Barrierefreiheit (z. B. sinnvolle Überschriftenhierarchie, Labels)
-- Validierung: https://validator.w3.org/
-- Performance: sinnvolle Mediengrößen, `meta viewport` für Mobilgeräte
+- Well-formed HTML: Alle Tags korrekt geöffnet und geschlossen, keine verschachtelten Fehler.
+- Validierung (gegen ein definiertes Schema): https://validator.w3.org/
 - Ressourcen:
   - MDN Web Docs (developer.mozilla.org)
   - HTML Living Standard (whatwg.org)
