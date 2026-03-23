@@ -13,6 +13,8 @@
   - [**Leerraum im Text**](#leerraum-im-text)
   - [**Paginierungen/Foliierungen im Quelldokument**](#paginierungen-folierungen-im-quelldokument)
   - [**Verknüpfung mit Faksimiles/Layout**](#verknuepfung-mit-faksimileslayout)
+  - metadaten im Header: [**TEI Header**](#header-info)
+  - [**Globale Attribute**](#globale-attribute)
 
 ----
 
@@ -179,3 +181,31 @@
     <surface xml:id="surf-f003v" n="3v"/>
   </facsimile>
   ```
+
+<a id="header-info"></a>
+- Metadaten sollten im Header platziert werden: [`<teiHeader>`](https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-teiHeader.html)
+  - siehe auch die [TEI Header-Dokumentation](https://tei-c.org/release/doc/tei-p5-doc/en/html/HD.html)
+  ```xml
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Der Titel des Werks</title>
+        <author>Max Mustermann</author>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Der Verlag</publisher>
+        <date>2024</date>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>Die Quelle, z. B. die Handschrift oder die Ausgabe, die transkribiert wurde</bibl>
+      </sourceDesc>
+    </fileDesc>
+    …
+  ```
+
+<a id="globale-attribute"></a>
+ - [Globale Attribute](https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.global.html): Alle TEI-Elemente können mit den globalen Attributen versehen werden z.B.:
+    - [@xml:id](https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.global.html#tei_att.xml-id) - "unique identifier"
+    - [@n](https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.global.html#tei_att.n) – non-unique label oder Nummer
+    - [@xml:lang](https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.global.html#tei_att.xml-lang) – Sprache (nach ISO Standard)
+    - [@rend](https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.global.rendition.html#tei_att.rend) und [@rendition](https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-att.global.rendition.html#tei_att.rendition) – visuelles Erscheinungsbild
