@@ -9,7 +9,7 @@
 - [**apply-templates**](#apply-templates)
 - [**copy**](#copy)
 - [**Parameter und Variablen**](#parameter-und-variablen)
-- [**Wiederverwendung mit call-template und function**](#wiederverwendung-mit-call-template-und-function)
+- [**Wiederverwendung mit call-template**](#wiederverwendung-mit-call-template)
 - [**Stylesheets zusammenbauen**](#stylesheets-zusammenbauen)
 - [**Minimales TEI-Stylesheet**](#minimales-tei-stylesheet)
 
@@ -26,7 +26,6 @@
   - Arbeitet template-basiert: Muster (`match`) werden in Outputfragmente übersetzt
   - Nutzt XPath zur Navigation und Selektion im XML-Baum
   - Typische Ergebnisse: HTML, Text oder anderes XML
-  - In XSLT 2.0 und 3.0 sind auch mehrere Ausgabedateien möglich
 
 <a id="warum-xslt"></a>
 
@@ -42,19 +41,19 @@
 - Haupt-Stylesheet und Module
   - Üblicherweise gibt es ein Haupt-Stylesheet als Einstiegspunkt
   - Dort werden globale Parameter, Imports und Includes definiert
-  - Zusätzliche Modul-Stylesheets trennen logische Bereiche, z. B. `tei-header.xsl`, `body.xsl` oder `helpers.xsl`
+  - Zusätzliche Modul-Stylesheets können logische Bereiche separieren, z. B. `tei-header.xsl`, `body.xsl` oder `helpers.xsl`
 
 <a id="templates-und-match"></a>
 
 - Templates und `match`
-  - `xsl:template match="…"` legt fest, wie bestimmte Knoten verarbeitet werden
-  - Das `match`-Attribut enthält meist einen XPath-Ausdruck oder ein Knotenmuster
+  - `xsl:template match="…"` legt fest, welche Knoten wie verarbeitet werden
+  - Das `match`-Attribut enthält einen XPath-Ausdruck
   - Templates sind das Grundprinzip von XSLT: richtiges Element finden, Ausgabe erzeugen
 
 <a id="apply-templates"></a>
 
 - `xsl:apply-templates`
-  - delegiert die Verarbeitung an andere passende Templates
+  - delegiert die Verarbeitung an andere passende (bzw. alle matchenden) Templates
   - ist zentral für die rekursive, baumartige Verarbeitung von XML
   - wird oft genutzt, um von einem übergeordneten Element zu seinen Kindern weiterzugehen
 
@@ -68,9 +67,9 @@
   - `xsl:variable` bindet Werte oder Knotensequenzen für die weitere Verarbeitung
   - Beides hilft dabei, Regeln übersichtlicher und wiederverwendbar zu halten
 
-<a id="wiederverwendung-mit-call-template-und-function"></a>
+<a id="wiederverwendung-mit-call-template"></a>
 
-- Wiederverwendung mit `call-template` und `function`
+- Wiederverwendung mit `call-template`
   - `xsl:call-template` ruft ein benanntes Template gezielt auf
 
 <a id="stylesheets-zusammenbauen"></a>
@@ -106,7 +105,7 @@
       </body>
     </html>
   </xsl:template>
-
+<!-- Identity-Template: kopiert alle Knoten und Attribute unverändert (also in unserem Fall einfach das Quell-XML) -->
   <xsl:template match="@*|node()">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
