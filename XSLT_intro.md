@@ -7,7 +7,7 @@
 - [**Haupt-Stylesheet und Module**](#haupt-stylesheet-und-module)
 - [**Templates und match**](#templates-und-match)
 - [**apply-templates**](#apply-templates)
-- [**value-of, copy, copy-of**](#value-of-copy-copy-of)
+- [**copy**](#copy)
 - [**Parameter und Variablen**](#parameter-und-variablen)
 - [**Wiederverwendung mit call-template und function**](#wiederverwendung-mit-call-template-und-function)
 - [**Stylesheets zusammenbauen**](#stylesheets-zusammenbauen)
@@ -49,7 +49,7 @@
 - Templates und `match`
   - `xsl:template match="…"` legt fest, wie bestimmte Knoten verarbeitet werden
   - Das `match`-Attribut enthält meist einen XPath-Ausdruck oder ein Knotenmuster
-  - Templates sind das Grundprinzip von XSLT: passende Regel finden, Ausgabe erzeugen
+  - Templates sind das Grundprinzip von XSLT: richtiges Element finden, Ausgabe erzeugen
 
 <a id="apply-templates"></a>
 
@@ -58,12 +58,8 @@
   - ist zentral für die rekursive, baumartige Verarbeitung von XML
   - wird oft genutzt, um von einem übergeordneten Element zu seinen Kindern weiterzugehen
 
-<a id="value-of-copy-copy-of"></a>
-
-- `xsl:value-of`, `xsl:copy`, `xsl:copy-of`
-  - `xsl:value-of` gibt den String-Wert eines Knotens aus
+<a id="copy"></a>
   - `xsl:copy` kopiert den aktuellen Knoten ohne seine Nachfahren vollständig mitzunehmen; diese werden meist mit `xsl:apply-templates` ergänzt
-  - `xsl:copy-of` übernimmt einen Knoten oder eine Sequenz direkt in die Ausgabe
 
 <a id="parameter-und-variablen"></a>
 
