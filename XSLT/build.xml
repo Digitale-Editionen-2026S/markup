@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." name="tei2html" default="build">
-    <property name="source.dir" value="./editions"/>
+    <property name="source.dir" value="./tei_edition"/>
     <property name="target.dir" value="./html"/>
     <property name="stylesheet" value="./xslt/basic.xsl"/>
     <property name="saxon.dir" value="${basedir}/saxon"/>
