@@ -13,28 +13,28 @@
 
 ## Was ist XPath
 - Sprache zur Adressierung/Selektion von Teilen eines XML-Baums/einer XML-Datei.
-- Wird in XSLT, XQuery, XProc, Schematron u. a. verwendet.
+- Wird u.a. in XSLT verwendet.
 - Versionen: XPath 1.0 (breit unterstützt), 2.0/3.1 (reichere Typen, Funktionen, Sequenzen; in Python nicht standardmäßig verfügbar).
 
 ## Datenmodell und Knotentypen
-- Knotenarten: Element, Attribut, Text, Dokument-Knoten, Namespace, Kommentar, Processing Instruction.
+- Knotenarten: Element, Attribut, Text, Dokument-Knoten, Namespace, …
 - Kontext bestimmt Auswertung, z. B.:
   - aktueller Knoten: `.`
 
 ## Pfad-Syntax und Startpunkte
-- `/` Wurzel
+- `/` Wurzel des Dokuments (in unserem Fall das TEI-Element)
 - `.` aktueller Knoten
 - `..` Elternknoten des aktuellen Knotens
-- `//` alle Nachfahren unterhalb (inkl. aktueller Knoten)
-- Kindschritte: `a/b/c`, beliebige Nachfahren: `a//c`
+- `//` alle Nachfahren unterhalb (inkl. aktueller Knoten), bzw. das TEI-Element und alle seine Nachfahren, wenn am Anfang eines Pfades verwendet
+- Kindschritte: `a/b/c` (die c-Knoten, die Kinder von b sind, die Kinder von a sind), beliebige Nachfahren: `a//c` (alle c-Knoten unterhalb von a)
 - Attribute: `@id`, `//@xml:id`
 
 Beispiele:
-- `/tei:TEI/tei:text/tei:body/tei:div`
-- `//tei:p`
-- `.//tei:note`
+- `/tei:TEI/tei:text/tei:body/tei:div` (alle divs im body)
+- `//tei:p` (alle Absätze im Dokument)
+- `.//tei:note` (alle Noten unterhalb des aktuellen Knotens)
 
-## Achsen
+## Achsen (vorerst weniger relevant, aber gut zu wissen)
 - `child::tei:p` → Kind-Elemente (Abkürzung: `tei:p`)
 - `descendant::tei:note` → Nachfahren (Abkürzung: `//tei:note`)
 - `parent::node()` → Elternknoten (Abkürzung: `..`)
@@ -49,20 +49,25 @@ Beispiele:
 - Nach Position:
   - `tei:div[1]` (erstes `div`-Kind)
   - `(//tei:note)[1]` (erste Note im Dokument)
-- Kombination mit `and`: `tei:div[@type='letter' and @n=3]`
+- Kombination mit `and`: `tei:div[@type='letter' and @n=3]` (div mit dem type „letter“ und n=3)
 - Positionen: `position()`, `last()`
-  - `tei:pb[position()=1]` (erste Seitenmarke)
-  - `tei:pb[last()]` (letzte Seitenmarke)
+  - `tei:pb[position()=1]` (erster Seitenwechsel)
+  - `tei:pb[last()]` (letzter Seitenwechsel)
 
 ## Funktionen und Operatoren
-- Zeichenketten: `string()`, `normalize-space()`, `contains()`, `starts-with()`, `substring()`
-- Numerisch: `count()`, `sum()`, `number()`
-- Boolesch: `boolean()`, `not()`, `true() / false()`, `exists()` (2.0+)
-- Sequenzen (2.0+): `distinct-values()`, FLWOR (`for $x in … return …`), `string-join()`
+- Zeichenketten: 
+  - `normalize-space()`  → entfernt führende und nachfolgende Leerzeichen
+  - `contains()` → prüft, ob eine Zeichenkette eine andere enthält
+  - `starts-with()` → prüft, ob eine Zeichenkette mit einer anderen beginnt
+  - Beispiele:
+    - `contains(., 'Renner')`
+    - `normalize-space(tei:head) != '')`
+
+- Numerisch: 
+  - `count()` → zählt die Anzahl der Knoten
+  - `sum()` → summiert numerische Werte
+  - `number()` → konvertiert in eine Zahl
 - Operatoren: `=`, `!=`, `<`, `<=`, `>`, `>=`; logische `and`, `or`
-- Beispiele:
-  - `contains(., 'Renner')`
-  - `normalize-space(tei:head) != '')`
 
 ## Namespaces (TEI) – wichtig!
 - TEI-Elemente stehen im Namespace `http://www.tei-c.org/ns/1.0` und müssen im XPath mit Präfix angesprochen werden.
