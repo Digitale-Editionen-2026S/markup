@@ -7,19 +7,25 @@
     <property name="saxon.jar" value="${saxon.dir}/saxon9he.jar"/>
     <property name="saxon.zip" value="${saxon.dir}/download.zip"/>
     <property name="saxon.url" value="https://sourceforge.net/projects/saxon/files/Saxon-HE/9.9/SaxonHE9-9-1-7J.zip/download"/>
-
+    <!-- entweder mit "depends" eine Ketten von Abhängigkeiten erstellen 
+     oder die mkdir Anweisung direkt & ohne target-Element anlegen: -->
+    <mkdir dir="${source.dir}"/>
+    <!-- oder 
+    <target name="prepare-source-dir">
+        <mkdir dir="${source.dir}"/>
+    </target> und dann in check-saxon als Abhängigkeit angeben: 
+    <target name="check-saxon" depends="prepare-source-dir">
+    -->
     <target name="check-saxon">
         <mkdir dir="${saxon.dir}"/>
         <available file="${saxon.jar}" property="saxon.present"/>
     </target>
-
     <target name="download-saxon" depends="check-saxon" unless="saxon.present">
         <echo message="Lade Saxon-Archiv nach ${saxon.zip} herunter ..."/>
         <get src="${saxon.url}" dest="${saxon.zip}" usetimestamp="true"/>
         <unzip src="${saxon.zip}" dest="${saxon.dir}" overwrite="false"/>
         <delete file="${saxon.zip}"/>
     </target>
-
     <target name="build" depends="download-saxon">
         <mkdir dir="${target.dir}"/>
         <xslt style="${stylesheet}" basedir="${source.dir}" destdir="${target.dir}" includes="*.xml" extension=".html">
