@@ -31,3 +31,4 @@ This repository contains introductory examples and teaching material for **marku
 - [`TEI_XML/`](./TEI_XML/)  
   XML-based example material:
   - [`tei_template.xml`](./TEI_XML/tei_template.xml) – starter template for TEI encoding
+  - [`tei_letter_howto.md`](./TEI_XML/tei_letter_howto.md) – really basic guide for letter specific encoding in TEI XML
